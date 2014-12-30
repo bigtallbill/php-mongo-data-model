@@ -1,0 +1,16 @@
+{
+  "name": "bigtallbill/php-mongo-data-model",
+  "autoload": {
+    "psr-0": {
+      "Bigtallbill\\": "/src/"
+    }
+  },
+  "require": {
+    "bigtallbill/php-data-model": "dev-master",
+    "aws/aws-sdk-php": "2.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.3.*",
+    "mockery/mockery": "~0.9"
+  }
+}
