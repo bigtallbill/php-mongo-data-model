@@ -91,13 +91,18 @@ class ModelMongoTest extends \PHPUnit_Framework_TestCase
 
     public function testToFromArray()
     {
-        $this->model->addProp('my_model', array('types' => array('Bigtallbill\Model\Mongo\ModelMongo')));
-        $this->model->my_model = new ModelMongo(null, '', '', array('sub_model_key' => array()));
-        $this->model->my_model->sub_model_key = 'loooool';
         $this->model->insert();
         $arr = $this->model->toArray();
         $this->model->fromArray($arr);
         $this->assertArrayHasKey('_id', $arr);
+    }
+
+    public function testInsertCreatesId()
+    {
+        $this->model->insert();
+        $actual = $this->model->id;
+        $this->assertNotNull($actual);
+        $this->assertInstanceOf('\MongoId', $actual);
     }
 
     //--------------------------------------

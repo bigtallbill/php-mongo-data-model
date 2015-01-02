@@ -42,12 +42,12 @@ class ModelMongo extends AModel
 
     public function insert()
     {
-        $arr = $this->toArray();
-
         // when a new doc is inserted get the new id back
         if ($this->id === null) {
             $this->id = $this->getNewId();
         }
+
+        $arr = $this->toArray();
 
         $response = $this->client->insert(new Insert($this->databaseName, $this->collectionName, $arr));
         return $response;
