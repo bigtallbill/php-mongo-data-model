@@ -16,6 +16,9 @@ use Bigtallbill\Model\Mongo\DbWrapper\Options\Update;
 
 class ModelMongo extends AModel
 {
+    /**
+     * @param $id
+     */
     public function loadById($id)
     {
         $result = $this->client->find(
@@ -24,11 +27,17 @@ class ModelMongo extends AModel
         $this->fromArray($result);
     }
 
+    /**
+     * @return string
+     */
     public function getIdKeyName()
     {
         return '_id';
     }
 
+    /**
+     * @return mixed
+     */
     public function update()
     {
         $object = array(
@@ -40,6 +49,9 @@ class ModelMongo extends AModel
         );
     }
 
+    /**
+     * @return mixed
+     */
     public function insert()
     {
         $arr = $this->toArray();
@@ -53,6 +65,9 @@ class ModelMongo extends AModel
         return $response;
     }
 
+    /**
+     * @return mixed
+     */
     public function remove()
     {
         return $this->client->remove(
@@ -60,6 +75,9 @@ class ModelMongo extends AModel
         );
     }
 
+    /**
+     * @return \MongoId
+     */
     public function getNewId()
     {
         return new \MongoId();

@@ -26,6 +26,9 @@ class DbWrapperMongo extends ADbWrapper
     /** @var mixed */
     protected $lastError;
 
+    /**
+     * @param $client
+     */
     public function setConnection($client)
     {
         $this->conn = $client;
@@ -82,6 +85,10 @@ class DbWrapperMongo extends ADbWrapper
         return $result;
     }
 
+    /**
+     * @param $response
+     * @return bool
+     */
     protected function isResponseOk($response)
     {
         if ($response === null) {
@@ -108,6 +115,9 @@ class DbWrapperMongo extends ADbWrapper
         return true;
     }
 
+    /**
+     * @return mixed
+     */
     public function lastError()
     {
         return $this->lastError;
