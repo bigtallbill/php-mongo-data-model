@@ -6,6 +6,6 @@ php:
   - hhvm
 install:
   - composer update --prefer-source
-before_script: phpenv config-add travis-php-ini.ini
+before_script: echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 script:
   - bash runtests.sh
