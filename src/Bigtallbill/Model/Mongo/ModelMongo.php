@@ -18,13 +18,21 @@ class ModelMongo extends AModel
 {
     /**
      * @param $id
+     *
+     * @return boolean True if the object was loaded, False otherwise
      */
     public function loadById($id)
     {
         $result = $this->client->find(
             new Find($this->databaseName, $this->collectionName, array($this->getIdKeyName() => $id))
         );
+
+        if (!is_array($result)) {
+            return false;
+        }
+
         $this->fromArray($result);
+        return true;
     }
 
     /**

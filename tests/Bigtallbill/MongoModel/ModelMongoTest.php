@@ -64,7 +64,7 @@ class ModelMongoTest extends \PHPUnit_Framework_TestCase
         $this->model->testProp = 'not the correct type of data!';
     }
 
-    public function testMagicGetSet()
+    public function test_magicGetSet()
     {
         $this->model->addProp('testProp', array('types' => array('Bigtallbill\Model\Mongo\ModelMongo')));
 
@@ -73,7 +73,7 @@ class ModelMongoTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($this->model, $this->model->testProp, 'the correct value should be returned');
     }
 
-    public function testMagicGetSetUnknowProperties()
+    public function test_magicGetSet_unknown_properties()
     {
         $this->model = new ModelMongo($this->mockMongoClient, '', '', array(), true);
         $this->model->someProperty = 'some value';
@@ -81,7 +81,7 @@ class ModelMongoTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('some value', $this->model->someProperty);
     }
 
-    public function testToArray()
+    public function test_toArray()
     {
         $this->model->insert();
         $arr = $this->model->toArray();
@@ -89,7 +89,7 @@ class ModelMongoTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('_id', $arr);
     }
 
-    public function testToFromArray()
+    public function test_toFromArray()
     {
         $this->model->insert();
         $arr = $this->model->toArray();

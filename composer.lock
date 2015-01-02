@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigtallbill/php-data-model.git",
-                "reference": "439b89abc7a519695ac382b082155e0f3f9bc44f"
+                "reference": "c35135f7c96fb8f6f065eff3fe153edb10f3dcb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigtallbill/php-data-model/zipball/439b89abc7a519695ac382b082155e0f3f9bc44f",
-                "reference": "439b89abc7a519695ac382b082155e0f3f9bc44f",
+                "url": "https://api.github.com/repos/bigtallbill/php-data-model/zipball/c35135f7c96fb8f6f065eff3fe153edb10f3dcb5",
+                "reference": "c35135f7c96fb8f6f065eff3fe153edb10f3dcb5",
                 "shasum": ""
             },
             "require-dev": {
@@ -98,7 +98,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2014-12-30 16:29:17"
+            "time": "2014-12-30 17:19:47"
         },
         {
             "name": "guzzle/guzzle",
