@@ -6,5 +6,6 @@ php:
   - hhvm
 install:
   - composer update --prefer-source
+before_script: phpenv config-add travis-php-ini.ini
 script:
   - bash runtests.sh
