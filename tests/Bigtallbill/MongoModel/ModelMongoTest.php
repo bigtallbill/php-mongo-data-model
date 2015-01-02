@@ -97,12 +97,12 @@ class ModelMongoTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('_id', $arr);
     }
 
-    public function testInsertCreatesId()
+    public function test_applyNewId()
     {
-        $this->model->insert();
-        $actual = $this->model->id;
-        $this->assertNotNull($actual);
-        $this->assertInstanceOf('\MongoId', $actual);
+        $actual = $this->model->applyNewId();
+        $this->assertInternalType('array', $actual);
+        $this->assertArrayHasKey($this->model->getIdKeyName(), $actual, 'the id should exist in the array');
+        $this->assertInstanceOf('\MongoId', $actual[$this->model->getIdKeyName()]);
     }
 
     //--------------------------------------

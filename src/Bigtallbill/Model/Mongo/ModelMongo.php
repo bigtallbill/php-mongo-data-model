@@ -54,14 +54,7 @@ class ModelMongo extends AModel
      */
     public function insert()
     {
-        // when a new doc is inserted get the new id back
-        if ($this->id === null) {
-            $this->id = $this->getNewId();
-        }
-
-        $arr = $this->toArray();
-
-        $response = $this->client->insert(new Insert($this->databaseName, $this->collectionName, $arr));
+        $response = $this->client->insert(new Insert($this->databaseName, $this->collectionName, $this->applyNewId()));
         return $response;
     }
 
@@ -81,5 +74,23 @@ class ModelMongo extends AModel
     public function getNewId()
     {
         return new \MongoId();
+    }
+
+    /**
+     * Applies a new id (generated from the getNewId method) to the id property and returns the result
+     *
+     * This method will modify the local ModelMongo object
+     *
+     * @return array
+     */
+    public function applyNewId()
+    {
+        // when a new doc is inserted get the new id back
+        if ($this->id === null) {
+            $this->id = $this->getNewId();
+        }
+
+        $arr = $this->toArray();
+        return $arr;
     }
 }
