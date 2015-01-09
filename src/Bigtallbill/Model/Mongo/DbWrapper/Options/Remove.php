@@ -14,10 +14,10 @@ use Bigtallbill\Model\DbWrapper\OperationOptions;
 class Remove extends OperationOptions
 {
     /** @var array */
-    protected $query;
+    public $query;
 
     /** @var array */
-    protected $options;
+    public $options;
 
     public function __construct($db, $col, $query, $options = array())
     {
